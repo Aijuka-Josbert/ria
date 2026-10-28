@@ -3,57 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#fff2f6" />
-  <title>Ria's Little Reset 🌷</title>
+  <meta name="theme-color" content="#090b18" />
+  <title>Ria's Chaos Reset ✦</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="scanlines" aria-hidden="true"></div>
   <div class="floating-layer" aria-hidden="true" id="floatingLayer"></div>
   <main class="app">
     <header class="topbar">
-      <div class="brand"><span class="brand-icon">✿</span><span>little reset</span></div>
-      <div class="top-note">a tiny corner of the internet 🌷</div>
+      <div class="brand"><span class="brand-icon">✦</span><span>RIA.EXE</span></div>
+      <button class="chaos-toggle" id="chaosBtn" type="button" aria-pressed="false">CHAOS MODE: OFF</button>
     </header>
 
     <section class="hero panel" id="intro">
-      <div class="eyebrow">A LITTLE SOMETHING FOR YOU</div>
-      <h1>Hey Ria <span class="wave">♡</span></h1>
-      <p class="hero-copy">No big talks. No pressure. Just a tiny game, a few smiles, and a little reminder that you deserve good days too.</p>
+      <div class="eyebrow">UNAUTHORIZED JOY PROTOCOL // 2026</div>
+      <h1>Hey Ria,<br /><span class="glitch" data-text="you've been selected">you've been selected</span> <span class="wave">✦</span></h1>
+      <p class="hero-copy">Five completely unnecessary missions. Zero emotional homework. Several questionable decisions. Proceed for immediate silly.</p>
       <div class="hero-art" aria-hidden="true">
-        <span class="sun">☀️</span><span class="cloud cloud-one">☁️</span><span class="cloud cloud-two">☁️</span>
-        <span class="flower f1">🌷</span><span class="flower f2">🌼</span><span class="flower f3">🌸</span>
-        <span class="sparkle s1">✦</span><span class="sparkle s2">✧</span>
+        <span class="orbit orbit-one">✦</span><span class="orbit orbit-two">✧</span><span class="planet">🪩</span>
+        <span class="hero-emoji e1">🐸</span><span class="hero-emoji e2">🪿</span><span class="hero-emoji e3">💥</span>
+        <span class="ticker">NO THOUGHTS // JUST VIBES // FEED THE FROG // CLICK EVERYTHING</span>
       </div>
-      <button class="primary" id="startBtn">Let's play a little <span>→</span></button>
-      <p class="tiny-note">Made with a little care by Lunatic 😒</p>
+      <button class="primary" id="startBtn" type="button">Enter the nonsense <span>↗</span></button>
+      <p class="tiny-note">Built with questionable judgement by Lunatic 😒</p>
     </section>
 
     <section class="game panel hidden" id="game">
       <div class="progress-wrap">
-        <div class="progress-label"><span id="roundLabel">ROUND 1 OF 5</span><span id="scoreLabel">petals: 0 🌸</span></div>
+        <div class="progress-label"><span id="roundLabel">MISSION 1 OF 5</span><span id="scoreLabel">chaos: 0 ✦</span></div>
         <div class="progress-track"><div id="progressBar"></div></div>
       </div>
       <div class="game-content" id="gameContent"></div>
       <div class="feedback hidden" id="feedback" aria-live="polite"></div>
-      <button class="primary hidden" id="nextBtn">Next little thing <span>→</span></button>
+      <button class="primary hidden" id="nextBtn" type="button">Next questionable mission <span>→</span></button>
     </section>
 
     <section class="ending panel hidden" id="ending">
-      <div class="ending-flower">🌷</div>
-      <div class="eyebrow">YOU MADE IT THROUGH</div>
-      <h2>Your little garden is growing.</h2>
-      <p class="ending-copy">Not every day has to be amazing. Some days, showing up is enough. Take your time with life, Ria — no rush, no pressure.</p>
-      <div class="garden" id="garden" aria-label="Your flower garden"></div>
-      <div class="note-card">
-        <div class="note-heading">A tiny note from Lunatic 😒</div>
-        <p>😂❤️ I may run out of words sometimes, but I can still send you random things to make you smile. Be kind to yourself, Ria. One day at a time, okay?</p>
+      <div class="ending-flower">🏆</div>
+      <div class="eyebrow">OFFICIAL DOCUMENT // DO NOT FRAME</div>
+      <h2>Ria survived the nonsense.</h2>
+      <p class="ending-copy">Against all odds, you clicked things, fed a frog, and made it to the end. This legally questionable certificate confirms your elite status.</p>
+      <div class="certificate">
+        <div class="certificate-mark">✦ RIA.EXE ✦</div>
+        <div class="certificate-title">CERTIFIED<br /><strong>CHAOS ICON</strong></div>
+        <p>This certifies that <strong>Kadondi Maria Priscilla</strong> has demonstrated exceptional silliness, snack-based resilience, and advanced internet distraction skills.</p>
+        <div class="signature"><span>Lunatic 😒</span><small>Chief Executive of Random Links</small></div>
       </div>
-      <p class="final-line">P.S. This game has no score for being okay. You can just be you. ♡</p>
-      <button class="secondary" id="replayBtn">Play again ↻</button>
-      <button class="text-button" id="confettiBtn">One last little sprinkle ✨</button>
+      <div class="link-zone">
+        <div class="note-heading">Need another distraction?</div>
+        <button class="secondary" id="randomLinkBtn" type="button">Deploy random link 🎲</button>
+        <p id="linkStatus" class="link-status" aria-live="polite">The internet is waiting suspiciously.</p>
+      </div>
+      <p class="final-line">P.S. You are allowed to be a person, not a productivity app. ♡</p>
+      <button class="secondary" id="replayBtn" type="button">Run it back ↻</button>
+      <button class="text-button" id="confettiBtn" type="button">Cause a tiny incident ✨</button>
     </section>
 
-    <footer>tiny game • big soft energy <span>♡</span></footer>
+    <footer>tiny game • enormous chaos <span>✦</span></footer>
   </main>
   <script src="script.js"></script>
 </body>
