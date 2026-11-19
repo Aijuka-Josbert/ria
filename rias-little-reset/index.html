@@ -3,113 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#170d1d" />
-  <title>Ria's Birthday Chaos Reset 🎂✦</title>
+  <meta name="theme-color" content="#091318" />
+  <title>Ria's Golden Exam Vault 🎓✦</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="floating-layer" aria-hidden="true" id="floatingLayer"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
   <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="floating-layer" aria-hidden="true" id="floatingLayer"></div>
 
   <main class="app">
     <header class="topbar">
-      <button class="brand" id="brandBtn" type="button" aria-label="RIA.EXE"><span class="brand-icon">✦</span><span>RIA.EXE</span></button>
+      <button class="brand" id="brandBtn" type="button" aria-label="Exam Pass for Ria">
+        <span class="brand-seal">✦</span>
+        <span class="brand-text">EXAM PASS <em>// RIA</em></span>
+      </button>
       <div class="topbar-right">
-        <span class="chip" id="giftChip">🎁 SURPRISE: LOCKED</span>
+        <span class="grade-pill" id="gradePill" title="Live Grade Forecast">FORECAST: <strong>A-</strong></span>
         <button class="icon-btn" id="soundBtn" type="button" aria-pressed="false" aria-label="Toggle sound" title="Sound on/off">🔊</button>
-        <button class="chaos-toggle" id="chaosBtn" type="button" aria-pressed="false">CHAOS MODE: OFF</button>
+        <button class="aura-btn" id="auraBtn" type="button" aria-pressed="false">LUCK AURA: OFF</button>
       </div>
     </header>
 
     <!-- INTRO -->
-    <section class="hero panel" id="intro">
-      <div class="ribbon">🎂 TODAY IS A VERY IMPORTANT DAY</div>
-      <div class="eyebrow">UNAUTHORIZED JOY PROTOCOL // BIRTHDAY EDITION</div>
-      <h1>Hey Ria,<br /><span class="glitch">you've been selected</span> <span class="wave">✦</span></h1>
-      <p class="hero-copy">Seven completely unnecessary missions. Zero emotional homework. Several questionable decisions. Finish them all and something locked will open. 🎁</p>
-      <div class="hero-art" aria-hidden="true">
-        <span class="orbit orbit-one">✦</span><span class="orbit orbit-two">✧</span><span class="planet">🪩</span>
-        <span class="hero-emoji e1">🐸</span><span class="hero-emoji e2">🎈</span><span class="hero-emoji e3">🎂</span>
-        <span class="ticker">NO THOUGHTS // JUST VIBES // FEED THE FROG // POP THE BALLOONS // SOMETHING IS LOCKED 🎁 // CLICK EVERYTHING</span>
+    <section class="panel hero" id="intro">
+      <div class="crest-badge">🎓 OFFICIAL EXAM SUCCESS CLEARANCE</div>
+      <p class="eyebrow">CANDIDATE DOSSIER · KADONDI MARIA PRISCILLA</p>
+      <h1>Hey Ria,<br /><span class="gold-text">go claim your distinctions.</span></h1>
+      <p class="lead">Six brand-new pre-exam trials designed to crush exam nerves, sharpen your focus, and unlock a wax-sealed Golden Exam Vault waiting just for you.</p>
+
+      <div class="hero-showcase" aria-hidden="true">
+        <div class="showcase-card">
+          <div class="sc-top"><span>STATUS</span><span class="sc-dot">● READY TO COOK</span></div>
+          <div class="sc-center">
+            <span class="laurel">🌿</span>
+            <span class="sc-emblem">🏆</span>
+            <span class="laurel flip">🌿</span>
+          </div>
+          <div class="sc-label">CLASS OF PURE EXCELLENCE</div>
+          <div class="sc-tags">
+            <span>MYTH BUSTER</span>
+            <span>GRADE CATCHER</span>
+            <span>FLOW LOCK</span>
+            <span>WORD DECODE</span>
+            <span>NOISE SHIELD</span>
+            <span>BATTLE KIT</span>
+          </div>
+        </div>
       </div>
-      <button class="primary" id="startBtn" type="button">Enter the nonsense <span>↗</span></button>
-      <p class="tiny-note">Built with questionable judgement by Lunatic 😒</p>
+
+      <button class="btn-gold" id="startBtn" type="button">Begin the 6 Trials <span>→</span></button>
+      <p class="footnote">Handcrafted with unreasonable confidence in you by Lunatic 😒</p>
     </section>
 
-    <!-- MISSIONS -->
-    <section class="game panel hidden" id="game">
-      <div class="progress-wrap">
-        <div class="progress-label"><span id="roundLabel">MISSION 1 OF 7</span><span id="scoreLabel">chaos: 0 ✦</span></div>
-        <div class="progress-track"><div id="progressBar"></div></div>
+    <!-- CHALLENGES -->
+    <section class="panel game hidden" id="game">
+      <div class="trial-head">
+        <div class="trial-meta">
+          <span id="trialLabel">TRIAL 1 OF 6</span>
+          <span id="luckLabel">luck points: 0 ✦</span>
+        </div>
+        <div class="steps" id="stepDots" aria-hidden="true"></div>
       </div>
-      <div class="game-content" id="gameContent"></div>
-      <div class="feedback hidden" id="feedback" aria-live="polite"></div>
-      <button class="primary hidden" id="nextBtn" type="button">Next questionable mission <span>→</span></button>
+
+      <div class="stage" id="stage"></div>
+      <div class="verdict hidden" id="verdict" aria-live="polite"></div>
+      <button class="btn-gold hidden" id="nextBtn" type="button">Next Trial <span>→</span></button>
     </section>
 
-    <!-- SURPRISE: GIFT + CAKE -->
-    <section class="gift panel hidden" id="gift">
-      <div id="giftStage">
-        <div class="eyebrow">SURPRISE PROTOCOL // CLEARANCE GRANTED</div>
-        <h2>You unlocked something. 🔓</h2>
-        <p class="hero-copy">All seven missions complete. The file is locked with a very serious ribbon. Tap the box to open it.</p>
-        <button class="giftbox" id="giftBox" type="button" data-level="0" aria-label="Open the gift">🎁</button>
-        <div class="tap-count" id="giftCount">tap to open · 0 / 3</div>
+    <!-- VAULT UNLOCK: WAX SEAL -> GOLDEN SCRATCH CARD -->
+    <section class="panel vault hidden" id="vault">
+      <!-- Stage A: Wax Seal -->
+      <div id="sealStage">
+        <div class="crest-badge">🔓 ALL 6 TRIALS PASSED</div>
+        <p class="eyebrow">TOP-SECRET HONORS ENVELOPE</p>
+        <h2>Break the Golden Wax Seal.</h2>
+        <p class="lead">Inside is your personal Golden Exam Ticket and a message from Lunatic. <strong>Press &amp; hold</strong> the seal (or tap it 3 times) to crack it open.</p>
+
+        <div class="envelope">
+          <div class="env-flap"></div>
+          <div class="env-body">
+            <span class="env-to">TO: RIA (FUTURE DISTINCTION HOLDER)</span>
+            <button class="wax-seal" id="waxSeal" type="button" aria-label="Press and hold or tap 3 times to break wax seal">
+              <svg class="seal-ring" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="52" />
+                <circle class="ring-fill" id="sealProgress" cx="60" cy="60" r="52" />
+              </svg>
+              <span class="seal-core">✦</span>
+            </button>
+            <span class="env-hint" id="sealHint">hold to melt seal · or tap 0 / 3</span>
+          </div>
+        </div>
       </div>
 
-      <div id="cakeStage" class="hidden">
-        <div class="eyebrow">OFFICIAL BIRTHDAY PROCEDURE</div>
-        <h2 id="cakeTitle">Make a wish, Ria. 🕯️</h2>
-        <div class="cake" id="cake" aria-label="Birthday cake">
-          <div class="candles" id="candles"></div>
-          <div class="tier t1"></div>
-          <div class="tier t2"></div>
-          <div class="tier t3"></div>
-          <div class="plate"></div>
+      <!-- Stage B: Scratch-Off Golden Ticket -->
+      <div id="scratchStage" class="hidden">
+        <div class="crest-badge">✨ GOLDEN EXAM PROPHECY</div>
+        <p class="eyebrow">OFFICIAL SCRATCH-TO-REVEAL TICKET</p>
+        <h2>Scratch off the gold foil, Ria.</h2>
+        <p class="lead">Rub across the ticket with your finger or mouse to uncover your official exam forecast.</p>
+
+        <div class="ticket-wrap">
+          <div class="ticket-under">
+            <div class="ticket-kicker">✦ VERIFIED EXAM PROPHECY ✦</div>
+            <div class="ticket-big">PURE DISTINCTION</div>
+            <div class="ticket-sub">Calm mind · Razor memory · Zero panic · 100% Unstoppable</div>
+          </div>
+          <canvas id="scratchCanvas" width="520" height="220" aria-label="Scratch off gold foil"></canvas>
         </div>
-        <p class="hero-copy" id="cakeHint">Tap each candle to blow it out. Or press the mic button and blow for real.</p>
-        <button class="secondary" id="micBtn" type="button">Blow for real 🎤</button>
-      </div>
-    </section>
-
-    <!-- PARTY -->
-    <section class="party panel hidden" id="party">
-      <div class="ending-flower">🎉</div>
-      <div class="eyebrow">TRANSMISSION FROM LUNATIC // PRIORITY: MAXIMUM</div>
-      <h2 id="partyTitle">Happy Birthday, Ria!</h2>
-      <div class="letter" id="letter" aria-live="polite" title="Tap to skip the typing"></div>
-
-      <div id="partyRest" class="hidden">
-        <div class="note-heading">🎟️ Your birthday vouchers <small>(tap to redeem)</small></div>
-        <div class="vouchers" id="vouchers"></div>
-
-        <div class="certificate">
-          <div class="certificate-mark">✦ RIA.EXE ✦ BIRTHDAY EDITION ✦</div>
-          <div class="certificate-title">CERTIFIED<br /><strong>CHAOS ICON</strong></div>
-          <p id="certText"></p>
-          <div class="signature"><span>Lunatic 😒</span><small>Chief Executive of Random Links</small></div>
+        <div class="scratch-row">
+          <span class="scratch-pct" id="scratchPct">0% scratched</span>
+          <button class="btn-ghost" id="quickRevealBtn" type="button">Quick reveal ✨</button>
         </div>
-
-        <div class="link-zone">
-          <div class="note-heading">Need another distraction?</div>
-          <button class="secondary" id="randomLinkBtn" type="button">Deploy random link 🎲</button>
-          <p id="linkStatus" class="link-status" aria-live="polite">The internet is waiting suspiciously.</p>
-        </div>
-
-        <p class="final-line">P.S. You are allowed to be a person, not a productivity app. ♡</p>
-        <div class="btn-row">
-          <button class="secondary" id="songBtn" type="button">Play the song 🎵</button>
-          <button class="secondary" id="fireworksBtn" type="button">Fireworks 🎆</button>
-          <button class="secondary" id="replayBtn" type="button">Run it back ↻</button>
-        </div>
-        <button class="text-button" id="confettiBtn" type="button">Cause a tiny incident ✨</button>
       </div>
     </section>
 
-    <footer>tiny game • enormous chaos <span>✦</span></footer>
+    <!-- FINALE: HONORS CELEBRATION -->
+    <section class="panel finale hidden" id="finale">
+      <div class="trophy-glow">🎓</div>
+      <p class="eyebrow">OFFICIAL TRANSMISSION FROM LUNATIC // PRIORITY: MAXIMUM</p>
+      <h2 class="finale-title" id="finaleTitle">Success in Your Exams, Ria!</h2>
+
+      <article class="letter-card" id="letter" aria-live="polite" title="Tap to reveal full letter"></article>
+
+      <div id="finaleRest" class="hidden">
+        <!-- Lucky Blessing Drawer -->
+        <div class="blessing-box">
+          <div class="section-heading">🍀 Pocket Exam-Day Blessing Generator</div>
+          <p class="blessing-sub">Whenever exam nerves show up, pull a fresh card.</p>
+          <div class="blessing-card" id="blessingCard">
+            <span class="blessing-icon" id="blessingIcon">✨</span>
+            <p class="blessing-text" id="blessingText">Tap the button below to draw your first exam-day blessing.</p>
+          </div>
+          <button class="btn-emerald" id="drawBlessingBtn" type="button">Draw a Lucky Blessing 🍀</button>
+        </div>
+
+        <!-- Exam Season Passes -->
+        <div class="section-heading">🎟️ Your Official Exam-Season Passes <small>(tap to stamp &amp; claim)</small></div>
+        <div class="passes" id="passes"></div>
+
+        <!-- Engraved Honors Diploma -->
+        <div class="diploma">
+          <div class="diploma-border">
+            <div class="diploma-top">✦ OFFICE OF ACADEMIC GREATNESS · EXAM SUCCESS WARRANT ✦</div>
+            <div class="diploma-title">CERTIFIED<br /><strong>EXAM CONQUEROR</strong></div>
+            <p class="diploma-body" id="diplomaText"></p>
+            <div class="loadout-summary" id="loadoutSummary"></div>
+            <div class="diploma-foot">
+              <div class="diploma-seal"><span>A+</span></div>
+              <div class="signature">
+                <strong>Lunatic 😒</strong>
+                <small>Chief Exam Cheerleader &amp; Minister of Good Vibes</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="ps-line">P.S. One paper at a time. Walk in calm, trust what you know, and leave no crumbs. ♡</p>
+
+        <div class="action-row">
+          <button class="btn-emerald" id="anthemBtn" type="button">Play Victory Anthem 🎺</button>
+          <button class="btn-emerald" id="fireworksBtn" type="button">Fireworks 🎆</button>
+          <button class="btn-ghost" id="replayBtn" type="button">Replay Trials ↻</button>
+        </div>
+        <button class="link-btn" id="sparkleBtn" type="button">Shower extra exam luck ✨</button>
+      </div>
+    </section>
+
+    <footer>built for ria's exam victory <span>✦</span> no panic allowed</footer>
   </main>
-  <noscript><p style="color:#fff;text-align:center">This little game needs JavaScript. Please enable it. 🐸</p></noscript>
+
+  <noscript><p style="color:#faf3e0;text-align:center;padding:24px">Please enable JavaScript to open Ria's Golden Exam Vault. 🎓</p></noscript>
   <script src="script.js"></script>
 </body>
 </html>
